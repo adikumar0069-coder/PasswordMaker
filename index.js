@@ -28,6 +28,17 @@ document.getElementById("generate").onclick = function(){
     let numbers2 = numbers[Random(9, 0)]
     let numbers3 = numbers[Random(9, 0)]
     let unshaffle_pass = [specialSymb1, specialSymb2, specialSymb3, upperalph1, upperalph2, upperalph3, loweralph1, loweralph2, loweralph3, numbers1, numbers2, numbers3]
-    let Password = unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)]
+   // let Password = unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)] + unshaffle_pass[Random(0, 11)]
+   let Password = ""
+   
+
+for (let i = unshaffle_pass.length - 1; i > 0; i--) {
+  let j = Random(i, 0)
+  let temp = unshaffle_pass[i]
+  unshaffle_pass[i] = unshaffle_pass[j]
+  unshaffle_pass[j] = temp
+}
+
+Password = unshaffle_pass.join("")
     document.getElementById("display_pass").textContent = `Your password is ${Password}`
 }
